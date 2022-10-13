@@ -3,7 +3,7 @@ from parser import SeleniumParser
 
 def main():
     url = "https://krisha.kz/prodazha/kvartiry/astana/?das[live.rooms]=1"
-    proxy_list = 'proxy/proxy_list1.json'
+    proxy_list = 'proxy/proxy_list.json'
     MAX_PAGE = 2
     i = 1
 

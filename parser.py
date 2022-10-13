@@ -26,9 +26,11 @@ class SeleniumParser:
         # Accept all SSL certificates by default
         webdriver.DesiredCapabilities.CHROME['acceptSslCerts'] = True
         options.add_argument("user-agent="+user_agent)
+        # Disable webdriver mode, so our requests won't be blocked, imitate default user
         options.add_argument("--disable-blink-features=AutomationControlled")
+        # Disable the launch of the browser on PC
         options.add_argument("--headless")
-        s = Service(executable_path="C:/python/webformyself/py/krisha/lib/chromedriver/chromedriver.exe")
+        s = Service(executable_path="drivers/chromedriver.exe")
         driver = webdriver.Chrome(options=options, service=s)
 
         try:
