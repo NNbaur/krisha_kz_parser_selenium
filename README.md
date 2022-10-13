@@ -1,2 +1,3 @@
 # krisha_kz_parser_selenium
-Parse data from website for the sale of real estate in Kazakhstan
+
+Parser on selenium and beautifulsoup4 for the most popular website for the sale of real estate in Kazakhstan
