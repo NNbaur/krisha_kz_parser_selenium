@@ -6,12 +6,13 @@ import json
 
 
 class SeleniumParser:
-    def __init__(self, url: str, filename: str, proxy_list: str):
+    def __init__(self, url: str, dirname: str, filename: str, proxy_list: str):
         self.url = url
         self.filename = filename
         self.proxy_list = proxy_list
+        self.dirname = dirname
 
-    def save_page(self):
+    def download_page(self):
         proxy_data = self.get_proxy_user(self.proxy_list)
         proxy = proxy_data['proxy']
         user_agent = proxy_data['user-agent']
@@ -37,7 +38,7 @@ class SeleniumParser:
             driver.get(self.url)
             time.sleep(3)
             html = driver.page_source
-            with open('pages/' + self.filename, 'w', encoding='utf-8') as f:
+            with open(self.dirname + self.filename, 'w', encoding='utf-8') as f:
                 f.write(html)
         finally:
             # Check that session runs with our proxy data

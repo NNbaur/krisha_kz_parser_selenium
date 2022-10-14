@@ -1,9 +1,9 @@
 [{
-  "proxy": "172.105.184.208:8001",
+  "proxy": "165.154.243.252:80",
   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 },
   {
-    "proxy": "219.78.194.41:80",
+    "proxy": "155.138.132.50:80",
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
   }
 ]
