@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.service import Service
 import time
 import random
 import json
-
+import os
 
 class SeleniumParser:
     def __init__(self, url: str, dirname: str, filename: str, proxy_list: str):
@@ -31,7 +31,13 @@ class SeleniumParser:
         options.add_argument("--disable-blink-features=AutomationControlled")
         # Disable the launch of the browser on PC
         options.add_argument("--headless")
-        s = Service(executable_path="drivers/chromedriver.exe")
+        driver_path = os.path.abspath(
+            os.path.join(
+            os.path.dirname(__file__),
+            os.path.pardir,
+            'drivers/chromedriver.exe')
+        )
+        s = Service(executable_path=driver_path)
         driver = webdriver.Chrome(options=options, service=s)
 
         try:
