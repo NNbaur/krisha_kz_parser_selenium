@@ -5,3 +5,4 @@ __pycache__
 .venv/
 .vim
 *.log
+.pytest_cache/

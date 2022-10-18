@@ -1,10 +1,9 @@
 from parser import SeleniumParser
-# import os
+
 
 def main():
     url = "https://krisha.kz/prodazha/kvartiry/astana/?das[live.rooms]=1"
     proxy_list = '../proxy/proxy_list.json'
-    # os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir, 'proxy/proxy_list.json'))
     dirname = '../pages/'
     max_page = 2
     i = 1

@@ -4,7 +4,7 @@ from parser import SeleniumParser
 
 
 def get_pages() -> list:
-    return glob.glob('pages/*.html')
+    return glob.glob('../pages/*.html')
 
 
 def collect_links(pages_path: str) -> list:
@@ -21,8 +21,8 @@ def collect_links(pages_path: str) -> list:
 
 
 def main():
-    proxy_list = 'proxy/proxy_list.json'
-    dirname = 'pages/flats/'
+    proxy_list = '../proxy/proxy_list.json'
+    dirname = '../pages/flats/'
     i = 1
     link_list = collect_links(get_pages())
     for link in link_list:
