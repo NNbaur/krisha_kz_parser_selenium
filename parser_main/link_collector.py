@@ -20,16 +20,15 @@ def collect_links(pages_path: str) -> list:
     return link_list
 
 
-def main():
+def save_page_by_links():
     proxy_list = '../proxy/proxy_list.json'
     dirname = '../pages/flats/'
+    driver_path = 'drivers/chromedriver_windows.exe'
     i = 1
     link_list = collect_links(get_pages())
     for link in link_list:
         filename = f'flat_' + str(i) + '.html'
-        SeleniumParser(link, dirname, filename, proxy_list).download_page()
+        print("Waiting for download page with flat...")
+        SeleniumParser(link, dirname, filename, proxy_list, driver_path).download_page()
         i += 1
-
-
-if __name__ == '__main__':
-    main()
+        print(f"{filename} is downloaded to {dirname}")

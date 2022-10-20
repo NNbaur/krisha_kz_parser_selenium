@@ -2,6 +2,8 @@ import bs4
 from typing import Type
 from bs4 import BeautifulSoup
 import glob
+from openpyxl import Workbook
+from openpyxl.styles import Alignment
 
 
 def get_characteristics(soup: Type[bs4.BeautifulSoup]) -> list:
@@ -53,3 +55,39 @@ def get_data_from_offers() -> list:
             full_data.append(main_info + chars)
     return full_data
 
+
+def save_to_excel():
+    print('Please wait. Saving data to excel file')
+    data = get_data_from_offers()
+    wb = Workbook()
+    ws = wb.active
+
+    col_titles = {
+        "A1": 'Местоположение', "B1": 'Заголовок', "C1": 'Цена',
+        "D1": 'Описание', "E1": 'Тип здания', "F1": 'Этаж',
+        "G1": 'Площадь', "H1": 'Жилой комплекс', "I1": 'Год постройки'
+    }
+
+    for k, v in col_titles.items():
+        ws[k] = v
+
+    for d in data:
+        ws.append(d)
+
+    cell_range2 = ws['A1':f'I{len(data)+1}']
+
+    for cells in cell_range2:
+        for cell in cells:
+            cell.alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
+
+    col_width = {
+        "A": 21, "B": 42, "C": 14,
+        "D": 85, "E": 14, "F": 8,
+        "G": 16, "H": 18, "I": 14
+    }
+
+    for k, v in col_width.items():
+        ws.column_dimensions[k].width = v
+
+    wb.save('../flats.xlsx')
+    print('Excel file is created')

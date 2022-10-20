@@ -1,9 +1,9 @@
 [{
-  "proxy": "165.154.243.252:80",
+  "proxy": "https://user11:123456qwerTssy@198.59.191.234:8080",
   "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
 },
   {
-    "proxy": "155.138.132.50:80",
-    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
-  }
+  "proxy": "https://user11:123456qwerTssy@198.59.191.234:8080",
+  "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+}
 ]
