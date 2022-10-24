@@ -10,13 +10,19 @@ def download_page_of_offers():
     i = 1
 
     while i <= max_page:
-        filename = f'pages_' + str(i) + '.html'
+        filename = f'pages_{i}.html'
         print("Waiting for download page with list of offers...")
         if i == 1:
-            SeleniumParser(url, dirname, filename, proxy_list, driver_path).download_page()
+            SeleniumParser(
+                url, dirname, filename,
+                proxy_list, driver_path
+            ).download_page()
         else:
-            url_param = url + '&page=' + str(i)
-            SeleniumParser(url_param, dirname, filename, proxy_list, driver_path).download_page()
+            url_param = f'{url}&page={i}'
+            SeleniumParser(
+                url_param, dirname, filename,
+                proxy_list, driver_path
+            ).download_page()
         i += 1
         print(f'{filename} is downloaded to {dirname}')
 
@@ -33,11 +39,15 @@ def make_url_to_parse():
             '\n3 = трехкомнатная'
             '\n4 = четырехкомнатная'
             '\n5 = пятикомнатная и выше'
-            '\n\nЕсли хотите выбрать несколько вариантов, запишите через пробел в одну строку:'
+            '\n\nЕсли хотите выбрать несколько вариантов,'
+            'запишите через пробел в одну строку:'
             '\n1 2 4'
-            '\nПокажет все одно-,двух- и четырехкомнатные квартиры\nВвод:\n').split(' ')]
+            '\nПокажет все одно-,двух- и'
+            'четырехкомнатные квартиры\nВвод:\n').split(' ')]
     except ValueError:
-        raise ValueError('Пожалуйста, попробуйте снова. Введите комнатность из представленного выше списка.')
+        raise ValueError(
+            'Пожалуйста, попробуйте снова.'
+            'Введите комнатность из представленного выше списка.')
     try:
         g1 = gorod[input(intro).strip()]
         url = f'https://krisha.kz/prodazha/kvartiry/{g1}/'

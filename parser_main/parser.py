@@ -8,7 +8,11 @@ import os
 
 
 class SeleniumParser:
-    def __init__(self, url: str, dirname: str, filename: str, proxy_list: str, driver_path: str):
+    def __init__(
+            self, url: str, dirname: str,
+            filename: str, proxy_list: str,
+            driver_path: str
+    ):
         self.url = url
         self.filename = filename
         self.proxy_list = proxy_list

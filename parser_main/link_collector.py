@@ -27,8 +27,11 @@ def save_page_by_links():
     i = 1
     link_list = collect_links(get_pages())
     for link in link_list:
-        filename = f'flat_' + str(i) + '.html'
+        filename = f'flat_{i}.html'
         print("Waiting for download page with flat...")
-        SeleniumParser(link, dirname, filename, proxy_list, driver_path).download_page()
+        SeleniumParser(
+            link, dirname, filename,
+            proxy_list, driver_path
+        ).download_page()
         i += 1
         print(f"{filename} is downloaded to {dirname}")
